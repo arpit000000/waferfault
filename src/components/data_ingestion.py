@@ -28,7 +28,7 @@ class DataIngestion:
 
     def export_collection_as_dataframe(self,collection_name, db_name):
         try:
-            mongo_client = MongoClient(MONGO_DB_URL)
+            mongo_client = MongoClient(mongo_uri, ssl=True, ssl_cert_reqs=ssl.CERT_NONE)
 
             collection = mongo_client[db_name][collection_name]
 
